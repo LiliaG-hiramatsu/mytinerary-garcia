@@ -1,5 +1,4 @@
-import CardPolaroid from "../components/CardPolaroid"
-import Arrow from "../components/Arrow"
+import Carousel from "../components/Carousel"
 
 export default function Home() {
     let data = [
@@ -21,17 +20,13 @@ export default function Home() {
         {id: 'oceania4' , city: "Wellington", photo: "/img/oceania/wellington.jpg"}
         ]
     return (
-        <main className="w-[1291px] h-[304px] flex justify-between items-end">
-            <div className="w-[742px] h-[304px] flex gap-10">
-                <h1 className="w-[742px] h-[64px] font-bold text-5xl leading-10">Find the perfect destination</h1>
+        <main className="w-4/5 ml-[219px] mt-[414px] flex justify-between mb-[400px]">
+            <div className="w-[742px] h-[304px] flex flex-col gap-10">
+                <h1 className="w-[742px] h-[64px] font-bold text-[48px] leading-10">Find the perfect destination</h1>
+                <p className="w-[628px] h-[96px] text-[24px] font-semibold leading-8 text-[#1C1C1C99]">Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.</p>
+                <button className="w-[346px] h-[64px] rounded-lg py-4 px-5 flex gap-4 justify-center bg-indigo-600 text-white text-[24px] font-semibold leading-8">View More</button>
             </div>
-            <div className="flex justify-center items-center">
-                <Arrow direction="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-                <div className="flex w-11/12 flex-wrap justify-center mt-5">
-                {data.slice(0,4).map(each => <CardPolaroid key={each.id} src={each.photo} alt={each.id} text={each.city} />)}
-                </div>
-                <Arrow direction="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </div>
+            <Carousel data={data} />
         </main>
     )
 }
