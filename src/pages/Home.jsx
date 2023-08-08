@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Carousel from "../components/Carousel"
 import axios from "axios"
+import { Link as Anchor } from "react-router-dom"
 
 export default function Home() {
     const [data, setData] = useState([])
@@ -21,7 +22,9 @@ export default function Home() {
             <div className="w-[742px] h-[304px] flex flex-col gap-10">
                 <h1 className="w-[742px] h-[64px] font-bold text-[48px] leading-10">Find the perfect destination</h1>
                 <p className="w-[628px] h-[96px] text-[24px] font-semibold leading-8 text-[#1C1C1C99]">Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.</p>
-                <button className="w-[346px] h-[64px] rounded-lg py-4 px-5 flex gap-4 justify-center bg-indigo-600 text-white text-[24px] font-semibold leading-8">View More</button>
+                <button className="w-[346px] h-[64px] rounded-lg py-4 px-5 flex gap-4 justify-center bg-indigo-600 text-white text-[24px] font-semibold leading-8">
+                    <Anchor to='/cities'>View More</Anchor>
+                </button>
             </div>
             <Carousel data={data} />
         </main>
