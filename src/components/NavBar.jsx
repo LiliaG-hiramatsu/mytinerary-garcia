@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function NavBar() {
     let [show, setShow] = useState(false)
     return (
-    <header className="w-4/5 mt-[32px] ml-[219px] flex justify-between items-center">
+    <header className="mt-[32px] mx-[219px] flex justify-between items-center">
         <span className="font-bold text-[32px]">My Tinerary</span>
         <nav className="flex justify-end px-10">
         <svg
@@ -46,7 +46,6 @@ export default function NavBar() {
                 </button>
             </div>
         ) : (null)}
-        
         </nav>
     </header>
     );
