@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link as Anchor } from "react-router-dom";
 
 export default function NavBar() {
     let [show, setShow] = useState(false)
@@ -23,12 +24,12 @@ export default function NavBar() {
         </svg>
         {show ? (
             <div className="flex ms-5 absolute top-[80px] rigth-[80px] flex-col">
-                <p className="font-bold text-[24px] px-2 bg-white rounded-xl w-[100px] text-center my-1">
+                <Anchor to='/' className="font-bold text-[24px] px-2 bg-white rounded-xl w-[100px] text-center my-1">
                 Home
-                </p>
-                <p className="font-bold text-[24px] px-2 bg-white rounded-xl w-[100px] text-center my-1">
+                </Anchor>
+                <Anchor to='/cities' className="font-bold text-[24px] px-2 bg-white rounded-xl w-[100px] text-center my-1">
                 Cities
-                </p>
+                </Anchor>
                 <button className="rounded-[10px] py-[16px] px-[32px] flex justify-center items-center gap-2.5 bg-indigo-600 font-bold text-[24px] text-white my-1">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
