@@ -1,10 +1,12 @@
+/* eslint-disable react/prop-types */
 import CardPolaroid from "../components/CardPolaroid"
 import Arrow from "../components/Arrow"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Carousel({ data }) {
     let [counter, setCounter] = useState(0)
     let [counterTo, setCounterTo] = useState(4)
+    
     function next_slide() {
         if (data.length <= counterTo) {
             setCounter(0)
@@ -23,10 +25,21 @@ export default function Carousel({ data }) {
             setCounterTo(counterTo - 4)
         }
     }
+    
+    useEffect(
+        () => {
+            setTimeout(() => {
+                next_slide()
+            }, 5000)
+        }
+    )
+
     return (
-        <div className="flex justify-center items-center">
-            <Arrow direction="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" onClick={prev_slide} />
-            <div className="flex w-11/12 flex-wrap justify-center mt-5">
+        <div className="flex justify-center items-center mt-[20px]
+        md:mt-[50px]
+        lg:w-2/3 lg:mt-0">
+            <Arrow direction="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" onClick={prev_slide} />
+            <div className="flex w-11/12 flex-wrap justify-center">
                 {data.slice(counter, counterTo).map((each, index) =>
                 <CardPolaroid 
                     key={index}
@@ -36,7 +49,7 @@ export default function Carousel({ data }) {
                     id={each.id}
                 />)}
             </div>
-            <Arrow direction="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" onClick={next_slide} />
+            <Arrow direction="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" onClick={next_slide} />
         </div>
     )
 }
