@@ -6,6 +6,6 @@ export default function CityDetail() {
     // Este hook devuelve un objeto donde cada CLAVE es la ruta dinamica definida en el enrutador
     // y donde cada VALOR es el valor de la URL.
     return (
-        <div>CityDetail of city {city_id} under construction</div>
+        <div className="mx-5">CityDetail of city {city_id} under construction</div>
     )
 }
