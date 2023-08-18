@@ -37,7 +37,7 @@ export default function Carousel({ data }) {
     return (
         <div className="flex justify-center items-center mt-[20px]
         md:mt-[50px]
-        lg:w-2/3 lg:mt-0">
+        lg:w-1/2 lg:mt-0">
             <Arrow direction="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" onClick={prev_slide} />
             <div className="flex w-11/12 flex-wrap justify-center">
                 {data.slice(counter, counterTo).map((each, index) =>

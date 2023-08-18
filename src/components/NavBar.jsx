@@ -37,7 +37,10 @@ export default function NavBar() {
     return (
     <header className="mt-[32px] mx-[50px]
     md:mx-[100px]
-    lg:mx-[200px]">
+    lg:mx-[80px]
+    xl:mx-[120px]
+    2xl:mx-[200px]
+    min-[1800px]:mx-[250px]">
         {show && (<svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
