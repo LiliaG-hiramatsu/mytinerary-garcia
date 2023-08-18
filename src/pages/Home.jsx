@@ -2,13 +2,14 @@ import { useState, useEffect } from "react"
 import Carousel from "../components/Carousel"
 import axios from "axios"
 import { Link as Anchor } from "react-router-dom"
+import apiUrl from '../apiUrl'
 
 export default function Home() {
     const [data, setData] = useState([])
     useEffect(
         () => {
-            axios('/data.json')
-                .then(res => setData(res.data))
+            axios(apiUrl+'cities/carousel')
+                .then(res => setData(res.data.data_carousel))
                 .catch(err=>console.log(err))
         },          // callback que No debe retornar nada y NO puede ser asincrona
         []          // array de dependencias
