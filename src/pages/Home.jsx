@@ -21,13 +21,13 @@ export default function Home() {
     return (
         <main className="mx-[50px] my-[100px] flex flex-col flex-wrap
         md:mx-[100px] md:my-[150px]
-        lg:mx-[80px] lg:my-[250px] lg:flex-row lg:justify-between lg:flex-nowrap
+        lg:mx-[80px] lg:my-[200px] lg:flex-row lg:justify-between lg:flex-nowrap
         xl:mx-[120px]
         2xl:mx-[200px]
         min-[1800px]:mx-[250px]">
-            <div className="flex flex-col gap-5 items-center
+            <div className="flex flex-col gap-5 items-center text-center
             md:w-fit md:gap-7
-            lg:w-1/2 lg:gap-10 lg:items-start">
+            lg:w-1/2 lg:gap-10 lg:items-start lg:text-start">
                 <h1 className="w-full font-bold text-[24px] leading-8
                 md:text-[38px] md:leading-10
                 lg:leading-tight lg:text-[30px]
