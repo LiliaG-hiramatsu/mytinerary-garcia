@@ -16,20 +16,38 @@ export default function CityDetail() {
             //.then(res => console.log(res.data.response))
             .then(res => setCity(res.data.response))
             .catch(err => console.log(err))
-    }, [])
+    })
     //console.log(city)
     return (
-        <div className="w-3/5 min-h-screen mx-64 mt-20 flex flex-col items-end">
+        <div className="w-3/4 min-h-screen mx-[50px] mt-4 flex flex-col items-end
+        md:w-4/5 md:mx-[100px]
+        min-[1400px]:mx-[150px]
+        min-[1700px]:mx-[250px]">
             <Anchor to={'/cities/'} className="mb-10">
-                <button className="bg-black px-3 py-1 rounded-xl text-white cursor-pointer hover:bg-[#282472]">
+                <button className="bg-black px-2 py-1 mt-10 rounded text-[12px] text-white cursor-pointer hover:bg-[#282472]
+                md:px-3 md:py-1 md:rounded-lg md:text-[14px]">
                     Back
                 </button>
             </Anchor>
-            <div className="self-center">
-                <h1 className="text-[24px] font-semibold text-center">{city.city}</h1>
+            <div className="flex flex-col items-center">
+                <h1 className="text-[20px] font-semibold text-center
+                lg:text-[24px]
+                xl:text-[28px]">
+                    {city.city}
+                </h1>
                 <img src={city.photo} alt="City photo" className="my-5 shadow-lg" />
-                <p>{city.description}</p>
-                <p className="text-gray-400 my-5">CityDetail of {city.city} under construction</p>
+                <p className="text-[14px] text-justify
+                md:text-[16px]
+                lg:text-[18px]
+                xl:text-[20px]">
+                    {city.description}
+                </p>
+                <p className="text-[14px] text-gray-400 my-5
+                md:text-[16px]
+                lg:text-[18px]
+                xl:text-[20px]">
+                    CityDetail of {city.city} under construction
+                </p>
             </div>
         </div>
     )

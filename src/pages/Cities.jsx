@@ -31,8 +31,7 @@ export default function Cities() {
         //console.log(text.current.value)
         setReEffect(!reEffect)
     }
-    // COMO HAGO PARA QUE, LUEGO DEL ERROR 404, CUANDO BORRO EL INPUT ME VUELVAN A APARECER LAS CARDS CORRESPONDIENTES
-    // COMO HAGO PARA QUE IGNORE LOS ESPACIOS AL PPIO Y AL FINAL
+
     return (
         <div className='w-full flex flex-col items-center mb-[200px]'>
             <div className="flex items-center border-b-2 border-blue-500 py-1 mb-20 mt-[200px]">
@@ -48,8 +47,7 @@ export default function Cities() {
             { error ? <ErrorCard /> : 
                 <div className='grid grid-cols-1 gap-3 mt-2 mx-[80px]
                 md:grid-cols-2 md:gap-7
-                lg:grid-cols-3 lg:gap-10
-                2xl:grid-cols-4'>
+                lg:grid-cols-3 lg:gap-10'>
                     { cities.map(each =>
                         <CardCity
                             key={each._id}
