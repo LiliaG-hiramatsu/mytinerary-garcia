@@ -16,7 +16,7 @@ export default function CityDetail() {
             //.then(res => console.log(res.data.response))
             .then(res => setCity(res.data.response))
             .catch(err => console.log(err))
-    })
+    }, [])
     //console.log(city)
     return (
         <div className="w-3/4 min-h-screen mx-[50px] mt-4 flex flex-col items-end
