@@ -8,7 +8,7 @@ export default function NavBar() {
         { to: "/", title: "Home" },
         { to: "/cities", title: "Cities" },
         {
-            to: "/login",
+            to: "/signin",
             title: "Login",
             display: "flex",
             alignItems: "center",
@@ -23,7 +23,7 @@ export default function NavBar() {
         { to: "/", title: "Home" },
         { to: "/cities", title: "Cities" },
         {
-            to: "/login",
+            to: "/signin",
             title: "Login",
             display: "flex",
             alignItems: "center",
