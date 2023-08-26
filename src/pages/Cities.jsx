@@ -1,30 +1,19 @@
-import axios from 'axios'
 import { useEffect, useState, useRef } from 'react'
-import apiUrl from '../apiUrl'
 import CardCity from '../components/CardCity'
-import ErrorCard from '../components/ErrorCard'
+import { useSelector, useDispatch } from 'react-redux'
+import city_actions from '../store/actions/cities'
+
+const { read_cities } = city_actions
 
 export default function Cities() {
-    const [cities, setCities] = useState([])
+    const cities = useSelector(store => store.cities.cities)
     const [reEffect, setReEffect] = useState(true)
-    const [error, setError] = useState(false)
     const text = useRef()
+    const dispatch = useDispatch()
+    //console.log(cities)
     useEffect(
         () => {
-            axios(apiUrl+'cities?city='+text.current.value)
-                //.then(res => console.log(res.data.response))
-                .then(res => {
-                    if (res.data.response.length === 0) {
-                        setError(true)
-                    } else {
-                        setError(false)
-                        setCities(res.data.response)
-                    }
-                })
-                .catch(err => {
-                    console.log(err)
-                    setError(true)
-                })
+            dispatch(read_cities({ text:text.current?.value }))
         }, [reEffect]
     )
     function handleFilter() {
@@ -44,23 +33,22 @@ export default function Cities() {
                     placeholder='Search city...'
                 />
             </div>
-            { error ? <ErrorCard /> : 
-                <div className='grid grid-cols-1 gap-3 mt-2 mx-[80px]
-                md:grid-cols-2 md:gap-7
-                lg:grid-cols-3 lg:gap-10'>
-                    { cities.map(each =>
-                        <CardCity
-                            key={each._id}
-                            src={each.photo}
-                            alt={each._id}
-                            text={each.city}
-                            textCountry={each.country}
-                            id={each._id}
-                        />
-                        )
-                    }
-                </div>
-            }
+            
+            <div className='grid grid-cols-1 gap-3 mt-2 mx-[80px]
+            md:grid-cols-2 md:gap-7
+            lg:grid-cols-3 lg:gap-10'>
+                { cities.map(each =>
+                    <CardCity
+                        key={each._id}
+                        src={each.photo}
+                        alt={each._id}
+                        text={each.city}
+                        textCountry={each.country}
+                        id={each._id}
+                    />
+                    )
+                }
+            </div>
         </div>
     )
 }

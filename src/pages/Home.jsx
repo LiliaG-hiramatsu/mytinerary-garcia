@@ -1,22 +1,31 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import Carousel from "../components/Carousel"
-import axios from "axios"
 import { Link as Anchor } from "react-router-dom"
-import apiUrl from '../apiUrl'
+import { useSelector, useDispatch } from "react-redux"
+import city_actions from '../store/actions/cities'
+const { read_carousel } = city_actions
 
 export default function Home() {
-    const [data, setData] = useState([])
+    //const store = useSelector(store=>store)
+    //console.log(store)
+    //const city_reducer = useSelector(store => store.cities)
+    //console.log(city_reducer)
+    const carousel = useSelector(store => store.cities.carousel)
+    //trae el array vacio porque todavia no DESPACHAMOS la accion
+    const dispatch = useDispatch()  //primero hay que instanciarlo
+
     useEffect(
         () => {
-            axios(apiUrl+'cities/carousel')
-                .then(res => setData(res.data.data_carousel))
-                .catch(err=>console.log(err))
+            if (carousel.length === 0) {
+                dispatch(read_carousel())
+            }
         },          // callback que No debe retornar nada y NO puede ser asincrona
         []          // array de dependencias
                     // cuando esta vacio, EL EFECTO se ejecuta una unica vez cuando se monta el componente
                     // cuando tiene variables de dependencias, EL EFECTO se ejecuta (cuando se monta y) CADA VEZ que cambia alguna de esas variables
         // [show]   // es ese ejemplo CADA VEZ que el booleano cambie, se ejecuta la callback de la linea 24
     )
+    console.log(carousel)
     
     return (
         <main className="mx-[50px] my-[100px] flex flex-col flex-wrap
@@ -44,7 +53,7 @@ export default function Home() {
                     <Anchor to='/cities'>View More</Anchor>
                 </button>
             </div>
-            <Carousel data={data} />
+            <Carousel data={carousel} />
         </main>
     )
 }

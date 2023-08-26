@@ -1,22 +1,23 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import apiUrl from '../apiUrl'
+import { useEffect } from "react"
 import {  useParams } from "react-router-dom"
 import { Link as Anchor } from 'react-router-dom'
+import { useSelector, useDispatch } from "react-redux"
+import city_actions from "../store/actions/cities"
+import CardCityDetail from "../components/CardCityDetail"
+const { read_city } = city_actions
 
 export default function CityDetail() {
-    const [city, setCity] = useState({})
     const { city_id } = useParams()
     // Este hook se engancha a la URL para evaluar todos lo parametros dinamicos que tiene la URL
     // Este hook devuelve un objeto donde cada CLAVE es la ruta dinamica definida en el enrutador
     // y donde cada VALOR es el valor de la URL.
+    const dispatch = useDispatch()
 
     useEffect(() => {
-            axios(apiUrl+'cities/'+city_id)
-            //.then(res => console.log(res.data.response))
-            .then(res => setCity(res.data.response))
-            .catch(err => console.log(err))
+            dispatch(read_city({ id:city_id }))
     }, [])
+    
+    const city = useSelector(store => store.cities.city)
     //console.log(city)
     return (
         <div className="w-3/4 min-h-screen mx-[50px] mt-4 flex flex-col items-end
@@ -29,26 +30,12 @@ export default function CityDetail() {
                     Back
                 </button>
             </Anchor>
-            <div className="flex flex-col items-center">
-                <h1 className="text-[20px] font-semibold text-center
-                lg:text-[24px]
-                xl:text-[28px]">
-                    {city.city}
-                </h1>
-                <img src={city.photo} alt="City photo" className="my-5 shadow-lg" />
-                <p className="text-[14px] text-justify
-                md:text-[16px]
-                lg:text-[18px]
-                xl:text-[20px]">
-                    {city.description}
-                </p>
-                <p className="text-[14px] text-gray-400 my-5
-                md:text-[16px]
-                lg:text-[18px]
-                xl:text-[20px]">
-                    CityDetail of {city.city} under construction
-                </p>
-            </div>
+            <CardCityDetail
+                name_city={city.city}
+                photo_city={city.photo}
+                description_city={city.description}
+                id_city={city.city_id}
+            />
         </div>
     )
 }
