@@ -20,8 +20,8 @@ export default function CityDetail() {
     }, [])
 
     return (
-        <div className="w-3/4 min-h-screen mx-[50px] mt-4 flex flex-col
-        md:w-4/5 md:mx-[100px]
+        <div className="w-3/4 min-h-screen mt-4 flex flex-col m-auto
+        md:w-4/5
         min-[1400px]:w-3/5 min-[1400px]:mx-[300px]
         min-[1700px]:mx-[250px]">
             <Anchor to={'/cities/'} className="mb-10 flex flex-col items-end">

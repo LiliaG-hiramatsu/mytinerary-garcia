@@ -40,7 +40,9 @@ export default function NavBar() {
     lg:mx-[80px]
     xl:mx-[120px]
     2xl:mx-[200px]
-    min-[1800px]:mx-[250px]">
+    min-[1800px]:mx-[250px]
+    min-[2000px]:mx-[300px]
+    min-[2500px]:mx-[400px]">
         {show && (<svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -79,15 +81,16 @@ export default function NavBar() {
         </svg>
         )}
         <nav className="w-full flex justify-between items-center">
-        <h1
-            className="hidden
-            md:flex md:font-bold md:text-[28px]
-            lg:text-[32px]
-            2xl:text-[40px]"
-        >
-            My Tinerary
-        </h1>
-        <Label option={optionLabel} />
+            <h1
+                className="hidden
+                md:flex md:font-bold md:text-[28px]
+                lg:text-[32px]
+                2xl:text-[40px]
+                min-[2500px]:text-[50px]"
+            >
+                My Tinerary
+            </h1>
+            <Label option={optionLabel} />
         </nav>
     </header>
     );

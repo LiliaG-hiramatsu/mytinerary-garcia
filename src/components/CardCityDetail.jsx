@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import itinerary_actions from '../store/actions/itineraries'
 import ItinerariesCard from "./ItinerariesCard"
 
@@ -8,8 +8,7 @@ const { read_itineraries_from_city } = itinerary_actions
 /* eslint-disable react/prop-types */
 export default function CardCityDetail({ src, alt, text, id, description }) {
     const [show, setShow] = useState(false)
-    const itineraries_from_city = useSelector(store => store.itineraries.itineraries_from_city)
-    //console.log(itineraries_from_city)
+    
     const dispatch = useDispatch()
     useEffect(
         () => {
@@ -19,7 +18,7 @@ export default function CardCityDetail({ src, alt, text, id, description }) {
     )
     
     return (
-        <div className="flex flex-col items-center mb-10">
+        <div className="w-full flex flex-col items-center mb-10">
             <h1 className="text-[20px] font-semibold text-center
             lg:text-[24px]
             xl:text-[28px]">
@@ -32,17 +31,14 @@ export default function CardCityDetail({ src, alt, text, id, description }) {
             xl:text-[20px]">
                 {description}
             </p>
-            <button onClick={() => setShow(!show)} className="bg-indigo-500 px-4 py-2 my-8 rounded-lg text-slate-200 font-semibold hover:bg-indigo-700 hover:text-white">
+            <button onClick={() => setShow(!show)}
+                className="bg-indigo-500 px-3 py-1.5 my-8 text-[12px] shadow-md rounded-lg text-white hover:bg-gradient-to-r from-purple-500 to-pink-500
+                md:text-[14px]
+                lg:px-4 lg:py-2">
                 { show ? ('Hide itineraries') : ('View itineraries') }
             </button>
-            { show && itineraries_from_city.map((each, index) => 
-                <ItinerariesCard
-                    key={index}
-                    src={each.photo}
-                    alt={each.city_id}
-                    text={each.name}
-                />
-            )}
+            
+            { show && <ItinerariesCard /> }
         </div>
     )
 }

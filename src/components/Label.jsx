@@ -7,31 +7,34 @@ export default function Label({ option }) {
         md:flex md:items-center md:gap-4
         lg:gap-8">
             {option.map(each => 
-            <Anchor 
-            key={each.to} 
-            to={each.to} 
-            className="font-bold text-center text-[14px]
-            md:text-[20px]
-            lg:text-[24px]"
-            style={{
-                display:each.display, 
-                alignItems:each.alignItems, 
-                backgroundColor:each.backgroundColor, 
-                color:each.color, 
-                paddingInline:each.paddingInline, 
-                paddingBlock:each.paddingBlock, 
-                borderRadius:each.borderRadius}}>
+                <Anchor 
+                    key={each.to} 
+                    to={each.to} 
+                    className="font-bold text-center text-[14px]
+                    md:text-[20px]
+                    lg:text-[24px]
+                    min-[2000px]:text-[28px]
+                    min-[2500px]:text-[32px]"
+                    style={{
+                        display:each.display, 
+                        alignItems:each.alignItems, 
+                        backgroundColor:each.backgroundColor, 
+                        color:each.color, 
+                        paddingInline:each.paddingInline, 
+                        paddingBlock:each.paddingBlock, 
+                        borderRadius:each.borderRadius}}
+                >
                 {
                     each.title === "Login" ? <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-6 h-6 mr-2"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="w-6 h-6 mr-2"
                     >
                     <path
-                    fillRule="evenodd"
-                    d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
-                    clipRule="evenodd"
+                        fillRule="evenodd"
+                        d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                        clipRule="evenodd"
                     />
                     </svg> : null
                 }

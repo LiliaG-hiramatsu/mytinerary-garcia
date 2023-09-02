@@ -33,18 +33,22 @@ export default function Home() {
         lg:mx-[80px] lg:my-[200px] lg:flex-row lg:justify-between lg:flex-nowrap
         xl:mx-[120px]
         2xl:mx-[200px]
-        min-[1800px]:mx-[250px]">
+        min-[1800px]:mx-[250px]
+        min-[2000px]:mx-[300px]
+        min-[2500px]:mx-[400px]">
             <div className="flex flex-col gap-5 items-center text-center
             md:w-fit md:gap-7
             lg:w-1/2 lg:gap-10 lg:items-start lg:text-start">
                 <h1 className="w-full font-bold text-[24px] leading-8
                 md:text-[38px] md:leading-10
                 lg:leading-tight lg:text-[30px]
-                min-[1570px]:text-[44px]">Find the perfect destination</h1>
-                <p className="w-full text-[18px] leading-6 font-semibold text-[#1C1C1C99]
+                min-[1500px]:text-[38px]
+                min-[2000px]:text-[44px]">Find the perfect destination</h1>
+                <p className="w-full text-[16px] leading-6 font-semibold text-[#1C1C1C99]
                 md:w-5/6 md:text-[20px] md:leading-8
-                lg:text-[18px]
-                min-[1570px]:text-[24px]">Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.</p>
+                lg:text-[22px]
+                min-[1500px]:text-[24px]
+                min-[2000px]:text-[26px]">Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.</p>
                 <button className="w-2/3 rounded-lg py-[8px] px-[10px] flex justify-center bg-indigo-600 text-white text-[15px] font-semibold
                 md:py-[13px] md:px-[15px] md:gap-4 md:text-[18px] md:leading-8
                 lg:w-1/2 lg:py-[12px] lg:px-[16px] lg:text-[18px]
