@@ -12,20 +12,33 @@ export default function SignIn() {
             mail: mail.current.value,
             password: password.current.value
         }
-        console.log(data)
+        //console.log(data)
     }
     return (
-        <div className="w-full mt-5 flex justify-between bg-gradient-to-r from-indigo-950 to-indigo-600">
-            <h1 className="mt-56 ml-[180px] text-[48px] font-bold text-slate-200">My Tinerary</h1>
-            <div className="w-1/3 mx-[180px] my-[100px] flex flex-col items-center py-5 bg-white rounded-lg">
-                <h1 className="mb-5 text-[24px] font-bold">Sign in</h1>
+        <div className="w-full min-h-screen mt-5 flex flex-col bg-gradient-to-r from-indigo-950 to-indigo-600
+        lg:flex-row lg:justify-between">
+            <h1 className="font-bold text-slate-200 self-center mt-14 text-[28px]
+            md:text-[36px]
+            lg:ml-[180px] lg:text-[48px]
+            min-[1800px]:ml-[400px]
+            min-[2300px]:ml-[500px]">My Tinerary</h1>
+            <div className="flex flex-col items-center bg-white rounded-lg m-8 p-4
+            md:w-1/2 md:self-center md:py-16
+            lg:mx-[180px] lg:my-[100px] lg:py-10
+            xl:w-1/3
+            min-[1440px]:w-1/4 min-[1440px]:mr-[300px]
+            min-[1800px]:w-1/4 min-[1800px]:mr-[400px] min-[1800px]:py-20
+            min-[2300px]:mr-[500px]">
+                <h1 className="mb-4 text-[20px] font-bold
+                lg:mb-5 lg:text-[24px]">Sign in</h1>
                 <form className="w-full flex flex-col items-center">
                     <input
-                        className="w-1/2 my-4 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                        focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                        className="w-2/3 my-2 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                        focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
                         disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                         invalid:border-pink-500 invalid:text-pink-600
-                        focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                        focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                        lg:w-1/2 lg:my-4"
                         ref={mail}
                         type="text"
                         name="mail"
@@ -33,11 +46,12 @@ export default function SignIn() {
                         placeholder="Type Mail"
                     />
                     <input
-                        className="w-1/2 my-4 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                        focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                        className="w-2/3 my-2 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                        focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
                         disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                         invalid:border-pink-500 invalid:text-pink-600
-                        focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                        focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                        lg:w-1/2 lg:my-4"
                         ref={password}
                         type="password"
                         name="password"
@@ -45,7 +59,8 @@ export default function SignIn() {
                         placeholder="Type Password"
                     />
                     <input
-                        className="w-1/2 my-4 px-3 py-2 rounded bg-indigo-200 hover:bg-indigo-500 hover:text-white cursor-pointer"
+                        className="w-2/3 my-2 px-3 py-2 rounded bg-indigo-300 hover:bg-indigo-500 hover:text-white cursor-pointer
+                        lg:w-1/2 lg:my-4"
                         type="button"
                         value="Sign In!"
                         onClick={handleSignIn}

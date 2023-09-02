@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import CardCity from '../components/CardCity'
+import ErrorCard from '../components/ErrorCard'
 import { useSelector, useDispatch } from 'react-redux'
 import city_actions from '../store/actions/cities'
 
@@ -22,8 +23,10 @@ export default function Cities() {
     }
 
     return (
-        <div className='w-full flex flex-col items-center mb-[200px]'>
-            <div className="flex items-center border-b-2 border-blue-500 py-1 mb-20 mt-[200px]">
+        <div className='w-full flex flex-col items-center mb-[50px]
+        lg:mb-[200px]'>
+            <div className="flex items-center border-b-2 border-indigo-500 py-1 mb-20 mt-[100px]
+            lg:mt-[200px]">
                 <input className='appearence-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none'
                     ref={text}
                     type="text"
@@ -32,12 +35,14 @@ export default function Cities() {
                     onChange={handleFilter}
                     placeholder='Search city...'
                 />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
             </div>
-            
-            <div className='grid grid-cols-1 gap-3 mt-2 mx-[80px]
-            md:grid-cols-2 md:gap-7
-            lg:grid-cols-3 lg:gap-10'>
-                { cities.map(each =>
+            <div className='grid grid-cols-1 gap-5 mt-2 mx-[30px]
+            md:grid-cols-2 md:gap-7 md:mx-[60px]
+            lg:grid-cols-3 lg:gap-10 lg:mx-[100px]'>
+                { cities?.map(each =>
                     <CardCity
                         key={each._id}
                         src={each.photo}
@@ -49,6 +54,7 @@ export default function Cities() {
                     )
                 }
             </div>
+            {cities.length === 0 && <ErrorCard />}
         </div>
     )
 }

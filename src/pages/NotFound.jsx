@@ -1,5 +1,6 @@
 export default function NotFound() {
     return (
-        <div>NOT FOUND PAGE</div>
+        <div className="w-full min-h-screen bg-[url('/pageNotFound.jpg')] bg-cover flex justify-center">
+        </div>
     )
 }

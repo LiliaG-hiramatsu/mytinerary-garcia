@@ -3,9 +3,9 @@ import { Link as Anchor } from "react-router-dom"
 
 export default function CardCity({ src, alt, text, id, textCountry}) {
     return (
-        <div className="w-full h-52 rounded-xl overflow-hidden shadow-lg">
+        <div className="w-full h-auto rounded-xl overflow-hidden shadow-lg">
             <Anchor to={'/city/'+id}>
-                <img src={src} alt={alt} className="h-32" />
+                <img src={src} alt={alt} className="aspect-[768/240] object-cover" />
             </Anchor>
             <div className="flex flex-col px-2 py-4 ml-2">
                 <h1 className="py-1 px-1 font-semibold">{ text }</h1>
