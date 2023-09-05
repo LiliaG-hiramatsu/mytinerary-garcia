@@ -1,15 +1,12 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
-import Activities from './Activities'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoneyBill1 } from '@fortawesome/free-solid-svg-icons'
+import ItineraryDetail from "./ItineraryDetail"
 
 /* eslint-disable react/prop-types */
 export default function ItinerariesCard() {
     const [like, setLike] = useState(false)
     const count = 0
     const [show, setShow] = useState(false)
-    const [view, setView] = useState(false)
     const itineraries_from_city = useSelector(store => store.itineraries.itineraries_from_city)
     //console.log(itineraries_from_city)
     
@@ -48,66 +45,13 @@ export default function ItinerariesCard() {
                             </svg>)
                         }
                     </div>
-                    {show && 
-                        <div className="flex flex-col">
-                            <div className="flex flex-col items-center
-                            md:flex md:flex-row md:justify-around md:items-start">
-                                <div className="flex flex-col items-center gap-2">
-                                    <img src={each.city_id.admin_id.photo} alt={each.city_id.admin_id._id} className="w-20 h-20 rounded-full" />
-                                    <p>{each.city_id.admin_id.name}</p>
-                                </div>
-                                <div className="flex flex-col items-center">
-                                    <h1 className="my-1 font-semibold">Hashtags</h1>
-                                    {each.tags.map((tag, index) => <p key={index} className="text-indigo-500 font-semibold">{tag}</p>)}
-                                </div>
-                                <div className="flex flex-col items-center">
-                                    <h1 className="my-1 font-semibold">Duration</h1>
-                                    <p>{(each.duration/60).toFixed(2)} hours</p>
-                                </div>
-                                <div className="flex flex-col items-center">
-                                    <h1 className="my-1 font-semibold">
-                                        Price    
-                                    </h1>
-                                    {each.price < 50 && <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />}
-                                    {each.price >= 50 && each.price < 75 &&
-                                    <div className="flex flex-col">
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                    </div>}
-                                    {each.price >= 75 && each.price < 100 &&
-                                    <div className="flex flex-col">
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                    </div>}
-                                    {each.price >= 100 && each.price < 150 &&
-                                    <div className="flex flex-col">
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                    </div>}
-                                    {each.price >= 150 && each.price <= 200 &&
-                                    <div className="flex flex-col">
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                        <FontAwesomeIcon icon={faMoneyBill1} size="lg" style={{color: "#147658"}} />
-                                    </div>}
-                                </div>
-                            </div>
-                            <button onClick={() => setView(!view)}
-                                className="w-28 self-center bg-pink-300 px-2 py-1 my-8 rounded-lg font-semibold hover:bg-pink-400 hover:text-white cursor-pointer
-                                lg:w-48 lg:px-4 lg:py-2">
-                                {view ? 
-                                    <span className="flex justify-center">View less</span> 
-                                    : 
-                                    <span className="flex justify-center">View more</span>
-                                }
-                            </button>
-                            {view && <Activities />}
-                        </div>
+                    {show && <ItineraryDetail 
+                        src={each.city_id.admin_id.photo}
+                        alt={each.city_id.admin_id._id}
+                        name={each.city_id.admin_id.name}
+                        tags={each.tags}
+                        duration={each.duration}
+                        price={each.price} />
                     }
                 </div>
             )}
