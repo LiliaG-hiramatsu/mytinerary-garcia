@@ -1,11 +1,13 @@
 import { useRef } from "react"
-import axios from "axios"
-import apiUrl from "../apiUrl"
 import { Link as Anchor } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import user_actions from '../store/actions/users'
+const { signin } = user_actions
 
 export default function SignIn() {
     const mail = useRef()
     const password = useRef()
+    const dispatch = useDispatch()
     
     async function handleSignIn() {
         let data = {
@@ -13,7 +15,10 @@ export default function SignIn() {
             password: password.current.value
         }
         //console.log(data)
+        dispatch(signin({ data }))
+        //COMO HAGO PARA QUE LUEGO DE HACER CLICK EN SIGN IN VAYA A LA HOME
     }
+    
     return (
         <div className="w-full min-h-screen mt-5 flex flex-col bg-gradient-to-r from-indigo-950 to-indigo-600
         lg:flex-row lg:justify-between">

@@ -1,13 +1,23 @@
+import { useEffect } from "react"
 import { RouterProvider } from "react-router-dom"
 import router from "./router"
-import { Provider } from "react-redux"
-import store from "./store/store"
+import { useDispatch } from "react-redux"
+import user_actions from "./store/actions/users"
+const { signin_token } = user_actions
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(
+    () => {
+      let token = localStorage.getItem('token')
+      if (token) {
+        dispatch(signin_token())
+      }
+    },
+    []
+  )
   return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <RouterProvider router={router} />
   )
 }
 

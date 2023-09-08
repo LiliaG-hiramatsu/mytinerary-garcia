@@ -26,7 +26,6 @@ export default function Home() {
         // [show]   // es ese ejemplo CADA VEZ que el booleano cambie, se ejecuta la callback de la linea 24
     )
     //console.log(carousel)
-    
     return (
         <main className="mx-[50px] my-[100px] flex flex-col flex-wrap
         md:mx-[100px] md:my-[150px]
