@@ -8,7 +8,6 @@ const { read_itineraries_from_city } = itinerary_actions
 /* eslint-disable react/prop-types */
 export default function CardCityDetail({ src, alt, text, id, description }) {
     const [show, setShow] = useState(false)
-    
     const dispatch = useDispatch()
     useEffect(
         () => {
@@ -16,7 +15,6 @@ export default function CardCityDetail({ src, alt, text, id, description }) {
         },
         []
     )
-    
     return (
         <div className="w-full flex flex-col items-center mb-10">
             <h1 className="text-[20px] font-semibold text-center

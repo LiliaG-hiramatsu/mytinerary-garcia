@@ -6,7 +6,6 @@ import { useState, useEffect } from "react"
 export default function Carousel({ data }) {
     let [counter, setCounter] = useState(0)
     let [counterTo, setCounterTo] = useState(4)
-    
     function next_slide() {
         if (data.length <= counterTo) {
             setCounter(0)
@@ -33,7 +32,7 @@ export default function Carousel({ data }) {
             }, 5000)
         }
     )
-
+    
     return (
         <div className="flex justify-center items-center mt-[20px]
         md:mt-[50px]
@@ -45,9 +44,9 @@ export default function Carousel({ data }) {
                 <CardPolaroid 
                     key={index}
                     src={each.photo}
-                    alt={each.id}
+                    alt={each._id}
                     text={each.city}
-                    id={each.id}
+                    id={each._id}
                 />)}
             </div>
             <Arrow direction="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" onClick={next_slide} />
