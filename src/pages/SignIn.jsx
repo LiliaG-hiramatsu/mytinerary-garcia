@@ -25,14 +25,13 @@ export default function SignIn() {
             <h1 className="font-bold text-slate-200 self-center mt-14 text-[28px]
             md:text-[36px]
             lg:ml-[180px] lg:text-[48px]
-            min-[1800px]:ml-[400px]
+            min-[1800px]:ml-[350px]
             min-[2300px]:ml-[500px]">My Tinerary</h1>
-            <div className="flex flex-col items-center bg-white rounded-lg m-8 p-4
+            <div className="flex flex-col items-center bg-white rounded-lg px-2 py-8
             md:w-1/2 md:self-center md:py-16
-            lg:mx-[180px] lg:my-[100px] lg:py-10
-            xl:w-1/3
-            min-[1440px]:w-1/4 min-[1440px]:mr-[300px]
-            min-[1800px]:w-1/4 min-[1800px]:mr-[400px] min-[1800px]:py-20
+            lg:mx-[120px] lg:my-[100px] lg:py-10
+            min-[1440px]:w-1/3 min-[1440px]:mr-[200px]
+            min-[1800px]:w-1/4 min-[1800px]:mr-[350px] min-[1800px]:py-20
             min-[2300px]:mr-[500px]">
                 <h1 className="mb-4 text-[20px] font-bold
                 lg:mb-5 lg:text-[24px]">Sign in</h1>
@@ -70,7 +69,8 @@ export default function SignIn() {
                         value="Sign In!"
                         onClick={handleSignIn}
                     />
-                    <p className="flex gap-1 text-gray-500">
+                    <p className="flex gap-1 text-gray-500
+                    md:flex-row md:gap-1">
                         New user?
                         <Anchor to='/signup' className="text-black font-semibold hover:text-indigo-500">Create an account</Anchor>
                     </p>
