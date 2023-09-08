@@ -1,22 +1,41 @@
 import { useRef } from "react"
-import { Link as Anchor } from "react-router-dom"
+import { Link as Anchor, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import user_actions from '../store/actions/users'
+import Swal from "sweetalert2"
 const { signin } = user_actions
 
 export default function SignIn() {
+    const navigate = useNavigate()
     const mail = useRef()
     const password = useRef()
     const dispatch = useDispatch()
     
-    async function handleSignIn() {
+    function handleSignIn() {
         let data = {
             mail: mail.current.value,
             password: password.current.value
         }
         //console.log(data)
         dispatch(signin({ data }))
-        //COMO HAGO PARA QUE LUEGO DE HACER CLICK EN SIGN IN VAYA A LA HOME
+            .then(res => {
+                if (res.payload.token) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Logged In!'
+                    })
+                    navigate('/')
+                }
+                else if (res.payload.messages.length > 0) {
+                    let html = res.payload.messages.map(each=>`<p>${each}</p>`).join('')
+                    Swal.fire({
+                        title: 'Something went wrong',
+                        icon: 'error',
+                        html
+                    })
+                }
+            })
+            .catch(err => console.log(err))
     }
     
     return (

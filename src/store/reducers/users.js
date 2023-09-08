@@ -6,7 +6,8 @@ const { read_users, signin, signin_token, logout } = user_actions
 const initial_state = {
     users: [],
     user: {},
-    token: ''
+    token: '',
+    messages: []
 }
 
 const user_reducer = createReducer(
@@ -26,7 +27,8 @@ const user_reducer = createReducer(
             let new_state = {
                 ...state,
                 user: action.payload.user,
-                token: action.payload.token
+                token: action.payload.token,
+                messages: action.payload.messages
             }
             return new_state
         }
