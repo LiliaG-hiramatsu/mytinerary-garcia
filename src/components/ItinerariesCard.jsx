@@ -1,15 +1,26 @@
-import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useEffect, useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import itinerary_actions from '../store/actions/itineraries'
 import ItineraryDetail from "./ItineraryDetail"
 
+const { read_itineraries_from_city } = itinerary_actions
+
 /* eslint-disable react/prop-types */
-export default function ItinerariesCard() {
+export default function ItinerariesCard({ id_itinerary_from_city }) {
     const [like, setLike] = useState(false)
     const count = 0
     const [show, setShow] = useState(false)
+    const dispatch = useDispatch()
     const itineraries_from_city = useSelector(store => store.itineraries.itineraries_from_city)
     //console.log(itineraries_from_city)
-    
+    useEffect(
+        () => {
+            if (itineraries_from_city.length === 0) {
+                dispatch(read_itineraries_from_city({ city_id: id_itinerary_from_city }))
+            }
+        },
+        []
+    )
     return (
         <>
             {itineraries_from_city?.map(each => 
@@ -51,7 +62,8 @@ export default function ItinerariesCard() {
                         name={each.city_id.admin_id.name}
                         tags={each.tags}
                         duration={each.duration}
-                        price={each.price} />
+                        price={each.price}
+                        id={each._id} />
                     }
                 </div>
             )}

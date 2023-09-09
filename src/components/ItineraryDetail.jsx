@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoneyBill1 } from '@fortawesome/free-solid-svg-icons'
 import Activities from './Activities'
 
-export default function ItineraryDetail({ src, alt, name, tags, duration, price }) {
+export default function ItineraryDetail({ src, alt, name, tags, duration, price, id }) {
     const [view, setView] = useState(false)
     return (
         <div className="flex flex-col">
@@ -55,15 +56,15 @@ export default function ItineraryDetail({ src, alt, name, tags, duration, price 
                 </div>
             </div>
             <button onClick={() => setView(!view)}
-                className="w-28 self-center bg-pink-300 px-2 py-1 my-8 rounded-lg font-semibold hover:bg-pink-400 hover:text-white cursor-pointer
-                lg:w-48 lg:px-4 lg:py-2">
+                className="w-28 self-center bg-indigo-200 px-2 py-1 my-8 rounded-lg hover:bg-indigo-500 hover:text-white cursor-pointer
+                lg:w-36 lg:px-3 lg:py-1">
                 {view ? 
-                    <span className="flex justify-center">View less</span> 
+                    <span className="flex justify-center">Hide activities</span> 
                     : 
-                    <span className="flex justify-center">View more</span>
+                    <span className="flex justify-center">Show activities</span>
                 }
             </button>
-            {view && <Activities />}
+            {view && <Activities id_itinerary={id} />}
         </div>
     )
 }

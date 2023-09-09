@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
-import itinerary_actions from '../store/actions/itineraries'
+import { useState } from "react"
 import ItinerariesCard from "./ItinerariesCard"
-
-const { read_itineraries_from_city } = itinerary_actions
 
 /* eslint-disable react/prop-types */
 export default function CardCityDetail({ src, alt, text, id, description }) {
     const [show, setShow] = useState(false)
-    const dispatch = useDispatch()
-    useEffect(
-        () => {
-            dispatch(read_itineraries_from_city({city_id: id}))
-        },
-        []
-    )
     return (
         <div className="w-full flex flex-col items-center mb-10">
             <h1 className="text-[20px] font-semibold text-center
@@ -35,7 +24,7 @@ export default function CardCityDetail({ src, alt, text, id, description }) {
                 lg:px-4 lg:py-2">
                 { show ? ('Hide itineraries') : ('View itineraries') }
             </button>
-            { show && <ItinerariesCard /> }
+            { show && <ItinerariesCard id_itinerary_from_city={id} /> }
         </div>
     )
 }
