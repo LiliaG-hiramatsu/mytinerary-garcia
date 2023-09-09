@@ -4,6 +4,7 @@ import apiUrl from "../apiUrl";
 import { Link as Anchor } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import user_actions from '../store/actions/users'
+import SelectCountry from "../components/SelectCountry";
 const { read_users } = user_actions
 
 export default function SignUp() {
@@ -90,19 +91,9 @@ export default function SignUp() {
             id="lastName"
             placeholder="Type Lastname"
           />
-          <input
-            className="w-2/3 my-2 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-            focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
-            disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-            invalid:border-pink-500 invalid:text-pink-600
-            focus:invalid:border-pink-500 focus:invalid:ring-pink-500
-            lg:w-1/2 lg:my-4"
-            ref={country}
-            type="text"
-            name="country"
-            id="country"
-            placeholder="Type Country"
-          />
+          
+          <SelectCountry ref={country} />
+          
           <input
             className="w-2/3 my-2 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
             focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
