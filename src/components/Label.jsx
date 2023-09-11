@@ -1,67 +1,67 @@
 /* eslint-disable react/prop-types */
-import { Link as Anchor } from "react-router-dom"
+import { Link as Anchor } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import user_actions from "../store/actions/users";
 const { logout } = user_actions;
 
 export default function Label({ option }) {
-    const dispatch = useDispatch();
-    const user = useSelector(store => store.users.user)
-    return (
-        <div className="hidden 
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.users.user);
+  return (
+    <div
+      className="hidden 
         md:flex md:items-center md:gap-4
-        lg:gap-8">
-            {option.map(each => 
-                <Anchor 
-                    key={each.to} 
-                    to={each.to} 
-                    className="font-bold text-center text-[14px]
+        lg:gap-8"
+    >
+      {option.map((each) => (
+        <Anchor
+          key={each.to}
+          to={each.to}
+          className="font-bold text-center text-[14px]
                     md:text-[20px]
                     lg:text-[24px]
                     min-[2000px]:text-[28px]
                     min-[2500px]:text-[32px]"
-                >
-                {each.title}
-            </Anchor>)}
-            {
-                user.mail ? (
-                    <Anchor
-                        to="/signin"
-                        onClick={() => dispatch(logout())}
-                        className="bg-[#4F46E5] hover:bg-indigo-700 text-white px-[16px] py-[8px] rounded-xl font-bold text-center text-[14px]
+        >
+          {each.title}
+        </Anchor>
+      ))}
+      {user.mail ? (
+        <Anchor
+          to="/signin"
+          onClick={() => dispatch(logout())}
+          className="bg-[#4F46E5] hover:bg-indigo-700 text-white px-[16px] py-[8px] rounded-xl font-bold text-center text-[14px]
                         md:text-[20px]
                         lg:text-[24px] lg:px-[32px] lg:py-[16px]
                         min-[2000px]:text-[28px]
                         min-[2500px]:text-[32px]"
-                    >
-                        Sign Out
-                    </Anchor>
-
-                    ) : (
-                    <Anchor
-                        to="/signin"
-                        className="flex items-center bg-[#4F46E5] hover:bg-indigo-700 text-white px-[32px] py-[16px] rounded-xl font-bold text-center text-[14px]
+        >
+          Sign Out
+        </Anchor>
+      ) : (
+        <Anchor
+          to="/signin"
+          className="flex items-center bg-[#4F46E5] hover:bg-indigo-700 text-white px-[32px] py-[16px] rounded-xl font-bold text-center text-[14px]
                         md:text-[20px]
                         lg:text-[24px]
                         min-[2000px]:text-[28px]
                         min-[2500px]:text-[32px]"
-                    >
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-4 h-4 mr-1"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                        Login
-                    </Anchor>
-                    )
-            }
-        </div>
-    )
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-4 h-4 mr-1"
+          >
+            <path
+              fillRule="evenodd"
+              d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Login
+        </Anchor>
+      )}
+    </div>
+  );
 }
