@@ -24,7 +24,7 @@ export default function CardCityDetail({ src, alt, text, id, description }) {
                 lg:px-4 lg:py-2">
                 { show ? ('Hide itineraries') : ('View itineraries') }
             </button>
-            { show && <ItinerariesCard id_itinerary_from_city={id} /> }
+            { show && <ItinerariesCard id_from_city={id} /> }
         </div>
     )
 }

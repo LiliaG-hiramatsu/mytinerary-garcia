@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react"
-import countriesData from '/src/countries.json'
+import countriesData from '/src/countries.json' //Traigo los paises desde un archivo json
 
 export default function SelectCountry({ ref }) {
     const [selectedCountry, setSelectedCountry] = useState('')
-
     const handleCountryChange = (event) => {
         setSelectedCountry(event.target.value)
     }
