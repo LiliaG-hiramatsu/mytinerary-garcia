@@ -1,10 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
 import user_actions from "../actions/users";
 
-const { read_users, signin, signin_token, logout } = user_actions
+const { signup, signin, signin_token, logout } = user_actions
 
 const initial_state = {
-    users: [],
     user: {},
     token: '',
     messages: []
@@ -13,11 +12,12 @@ const initial_state = {
 const user_reducer = createReducer(
     initial_state,
     builder => builder.addCase(
-        read_users.fulfilled,
+        signup.fulfilled,
         (state, action) => {
             let new_state = {
                 ...state,
-                users: action.payload.users
+                user: action.payload.user,
+                messages: action.payload.messages
             }
             return new_state
         }

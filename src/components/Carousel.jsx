@@ -24,7 +24,7 @@ export default function Carousel({ data }) {
             setCounterTo(counterTo - 4)
         }
     }
-    
+    /*
     useEffect(
         () => {
             setTimeout(() => {
@@ -32,7 +32,7 @@ export default function Carousel({ data }) {
             }, 5000)
         }
     )
-    
+    */
     return (
         <div className="flex justify-center items-center mt-[20px]
         md:mt-[50px]
