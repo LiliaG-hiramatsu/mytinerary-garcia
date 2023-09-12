@@ -2,6 +2,8 @@
 import { Link as Anchor } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import user_actions from "../store/actions/users";
+import Swal from "sweetalert2"
+
 const { logout } = user_actions;
 
 export default function Display({ option }) {
@@ -21,7 +23,12 @@ export default function Display({ option }) {
             {user.mail ? (
             <Anchor
                 to=""
-                onClick={() => dispatch(logout())}
+                onClick={() => dispatch(logout()) &&
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Logged Out!'
+                })
+                }
                 className="bg-[#4F46E5] hover:bg-indigo-700 text-white px-[16px] py-[8px] rounded-lg font-bold text-[20px] text-start mt-2"
             >
                 Sign Out

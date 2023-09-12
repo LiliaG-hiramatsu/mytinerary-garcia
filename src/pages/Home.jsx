@@ -6,10 +6,6 @@ import city_actions from '../store/actions/cities'
 const { read_carousel } = city_actions
 
 export default function Home() {
-    //const store = useSelector(store=>store)
-    //console.log(store)
-    //const city_reducer = useSelector(store => store.cities)
-    //console.log(city_reducer)
     const carousel = useSelector(store => store.cities.carousel)
     //trae el array vacio porque todavia no DESPACHAMOS la accion
     const dispatch = useDispatch()  //primero hay que instanciarlo
@@ -23,7 +19,7 @@ export default function Home() {
         []          // array de dependencias
                     // cuando esta vacio, EL EFECTO se ejecuta una unica vez cuando se monta el componente
                     // cuando tiene variables de dependencias, EL EFECTO se ejecuta (cuando se monta y) CADA VEZ que cambia alguna de esas variables
-        // [show]   // es ese ejemplo CADA VEZ que el booleano cambie, se ejecuta la callback de la linea 24
+        // [show]   // es ese ejemplo CADA VEZ que el booleano cambie, se ejecuta la callback
     )
     //console.log(carousel)
     return (

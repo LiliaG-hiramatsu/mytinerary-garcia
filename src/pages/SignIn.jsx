@@ -46,7 +46,8 @@ export default function SignIn() {
             lg:ml-[180px] lg:text-[48px]
             min-[1800px]:ml-[350px]
             min-[2300px]:ml-[500px]">My Tinerary</h1>
-            <div className="flex flex-col items-center bg-white rounded-lg px-2 py-8
+            <div className="w-4/5 self-center flex flex-col items-center bg-white rounded-lg px-2 py-8 my-5
+            min-[375px]:w-2/3
             md:w-1/2 md:self-center md:py-16
             lg:mx-[120px] lg:my-[100px] lg:py-10
             min-[1440px]:w-1/3 min-[1440px]:mr-[200px]
@@ -88,8 +89,8 @@ export default function SignIn() {
                         value="Sign In!"
                         onClick={handleSignIn}
                     />
-                    <p className="flex gap-1 text-gray-500
-                    md:flex-row md:gap-1">
+                    <p className="flex gap-1 text-gray-500 text-[12px]
+                    md:flex-row md:gap-1 md:text-[16px]">
                         New user?
                         <Anchor to='/signup' className="text-black font-semibold hover:text-indigo-500">Create an account</Anchor>
                     </p>
