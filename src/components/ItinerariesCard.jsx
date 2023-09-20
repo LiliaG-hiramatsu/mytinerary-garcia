@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import itinerary_actions from "../store/actions/itineraries";
 import ItineraryDetail from "./ItineraryDetail";
 import Likes from "./Likes";
-import Arrow from "./Arrow";
 
 const { read_itineraries_from_city } = itinerary_actions;
 

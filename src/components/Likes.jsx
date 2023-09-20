@@ -1,14 +1,44 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+// Los likes vienen del backend,
+// para renderizar el numero que cuenta los likes hay que llamar a la peticion read usando useEffect
+// para dar like o no, usar un evento con el create y ademas un estado local para pintarlo o no
+import { useState, useEffect } from "react"
+import axios from "axios";
+import apiUrl from "../apiUrl";
 
 export default function Likes({ id_from_itinerary }) {
     const [like, setLike] = useState(false);
-    const count = 0;
+    const [count, setCount] = useState(0)
+
+    useEffect(
+        () => {
+            async function read_likes() {
+                try {
+                    const data = await axios(apiUrl+'likes?id_itinerary='+id_from_itinerary)
+                    setCount(data.data.response)
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+            read_likes()
+        },
+        []
+    )
+    
+    async function handleLikes() {
+        try {
+            const data = await axios.post(apiUrl+'likes')
+            console.log(data)
+            setLike(!like)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <>
             {like ? (
                 <svg
-                onClick={() => setLike(!like)}
+                onClick={handleLikes}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
@@ -19,7 +49,7 @@ export default function Likes({ id_from_itinerary }) {
                 </svg>
                 ) : (
                 <svg
-                onClick={() => setLike(!like)}
+                onClick={handleLikes}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -35,7 +65,7 @@ export default function Likes({ id_from_itinerary }) {
                 />
                 </svg>
                 )}
-            <span className="ml-2">{like ? count + 1 : count}</span>
+            <span className="ml-2">{ count }</span>
         </>
     )
 }
