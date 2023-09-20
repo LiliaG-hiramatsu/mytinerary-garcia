@@ -4,7 +4,9 @@ import Label from "./Label";
 import { useSelector } from "react-redux";
 
 export default function NavBar() {
-  let [show, setShow] = useState(false);
+  let [show, setShow] = useState(false);  // Estado para que se muestre el menu hamburguesa
+  // si show es true, se despliega el menu y ademas se muestra el icono cruz
+  // si show es false, el menu hamburguesa esta cerrado y se muestra el icono de menu hamburguesa
   let option = [
     { to: "/", title: "Home" },
     { to: "/cities", title: "Cities" },
@@ -26,24 +28,6 @@ export default function NavBar() {
         md:hidden"
       >
         <div className="flex flex-col items-start">
-          {show && (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-8 h-8 cursor-pointer
-                        md:hidden"
-              onClick={() => setShow(!show)}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          )}
           {show ? (
             <Display option={option} />
           ) : (
@@ -65,7 +49,7 @@ export default function NavBar() {
             </svg>
           )}
         </div>
-        {!show && user.mail && (
+        {user.mail && (
           <div className="flex justify-end items-center">
             <img
               src={user.photo}

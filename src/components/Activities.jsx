@@ -18,12 +18,14 @@ export default function Activities({ id_itinerary }) {
     )
     return (
         <>
-            <div className="w-full flex justify-between mb-5">
+            <div className="flex flex-col items-center
+            md:flex-row md:justify-between md:mb-5">
                 {activities.map(each =>
-                    <div key={each._id} className="w-1/3 flex flex-col items-center p-2 m-3 bg-indigo-50 rounded-xl">
+                    <div key={each._id} className="w-2/3 flex flex-col items-center p-2 m-3 bg-indigo-50 rounded-xl
+                    md:w-1/3">
                         <img src={each.photo} alt={each._id} className="w-full h-16 object-cover rounded-xl" />
-                        <h1 className="text-[14px] my-1 mb-4">{each.name}</h1>
-                    </div>    
+                        <h1 className="text-[14px] my-1 mb-4 text-center">{each.name}</h1>
+                    </div>
                 )}
             </div>
             <div className="flex flex-col items-center">
