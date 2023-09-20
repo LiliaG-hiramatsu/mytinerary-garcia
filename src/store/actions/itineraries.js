@@ -6,7 +6,7 @@ const read_itineraries_from_city = createAsyncThunk(
     'read_itineraries_from_city',
     async(obj) => {
         try {
-            let data = await axios(apiUrl+'itineraries?city_id='+obj.city_id) //tengo la duda de si ese obj lo recibe la peticion o lo pasa?
+            let data = await axios(apiUrl+'itineraries?city_id='+obj.city_id)
             //console.log(data)
             return {
                 itineraries_from_city: data.data.response

@@ -4,7 +4,8 @@ import itinerary_actions from "../actions/itineraries";
 const { read_itineraries_from_city } = itinerary_actions
 
 const initial_state = {
-    itineraries_from_city: []
+    itineraries_from_city: [],
+    like: 0
 }
 
 const itinerary_reducer = createReducer(
