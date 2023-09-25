@@ -20,11 +20,10 @@ export default function CityDetail() {
     }, [])
 
     return (
-        <div className="w-3/4 min-h-screen mt-4 flex flex-col m-auto
+        <div className="w-3/4 min-h-screen mt-4 self-center
         md:w-4/5
-        min-[1400px]:w-3/5 min-[1400px]:mx-[300px]
-        min-[1700px]:mx-[250px]">
-            <Anchor to={'/cities/'} className="mb-10 flex flex-col items-end">
+        min-[1400px]:w-3/5">
+            <Anchor to={'/cities/'} className="mb-10 flex">
                 <button className="bg-black px-2 py-1 mt-10 rounded text-[12px] text-white cursor-pointer hover:bg-indigo-700
                 md:px-3 md:py-1 md:rounded-lg md:text-[14px]">
                     Back
