@@ -7,7 +7,7 @@ export default function Footer() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.users.user);
   return (
-    <>
+    <div className="flex flex-col">
       <div
         className="h-[100px] flex justify-evenly items-start pt-4 bg-black
             md:h-[200px] md:pt-12"
@@ -164,6 +164,6 @@ export default function Footer() {
           &copy; 2023 Lilia Andrea García Hiramatsu - All rights reserved.
         </p>
       </div>
-    </>
+    </div>
   );
 }
